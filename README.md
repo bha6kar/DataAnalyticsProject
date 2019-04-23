@@ -1,2 +1,2 @@
-# DataAnalyticsProject
-DataAnalyticsProject Course Work
+# DataAnalysis
+Repo for Data Analysis module at QMUL

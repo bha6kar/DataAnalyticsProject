@@ -16,3 +16,6 @@ In order to accomplish the prediction, the historical data of the stocks is need
 #### Apple Stock price visualiastion
 ![Figure](https://github.com/bha6kar/DataAnalyticsProject/blob/master/figures/aapl/Stock.png)
 
+#### Comparision of Stock price visualisation
+
+![Figure2](https://github.com/bha6kar/DataAnalyticsProject/blob/master/figures/AMGF.png)

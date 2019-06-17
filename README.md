@@ -10,3 +10,7 @@ The aim of this project will be based on the prediction of 4 leading stocks in t
 * MSFT (MICROSOFT)
 
 In order to accomplish the prediction, the historical data of the stocks is needed, starting from 21st of March 2000 until 21st of March 2019.
+
+# Data visualisation
+
+![Figure](/figures/AAPL/Stock.png)

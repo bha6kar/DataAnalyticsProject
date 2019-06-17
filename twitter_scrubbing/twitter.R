@@ -3,7 +3,7 @@ this.dir <- dirname(parent.frame(2)$ofile)
 setwd(this.dir)
 
 # Set libPaths.
-.libPaths("~\\R\\3.5")
+.libPaths("//usr//local//Cellarr//3.6.0_2")
 
 # Load required packages.
 library(janitor)
@@ -20,7 +20,7 @@ library(tibble)
 library(exploratory)
 
 # Set OAuth token.
-exploratory::setTokenInfo("twitter", as.environment(list(user_id = "789090380", screen_name = "Onyx", oauth_token = "490554898-Phjhdjf6gr89jk3n4u38n86tHyyd7", oauth_token_secret = "avcr78tbix7634bhrxn783o4LSLGnj3c78", consumer_sc = "dhgsjfhisdlbyfoiyxie67f7yf86et7")))
+exploratory::setTokenInfo("twitter", as.environment(list(user_id = "3039914070", screen_name = "Axe_Why", oauth_token = "3039914070-PeE1I4paM8Y7OWLAzfLq6lJnIy8if2Boe6ir4gQ", oauth_token_secret = "jfpEjEA17jFqXY16cyDQsNjWI07pJDnXbsCrzD8wf1f3h", consumer_sc = "wqP7VhX5yDEGzLL3eHSbT2wDlJvs4OitruIkd18CQZGzsySFuX")))
 
 # Steps to produce the output
 data <- exploratory::select_columns(exploratory::clean_data_frame(exploratory::getTwitter(searchString = '#aapl', n = 20000, lang = '', lastNDays = 20, tokenFileId = '', includeRts = FALSE, withSentiment = TRUE)),"created_at","text","sentiment") %>% readr::type_convert() %>%
@@ -33,4 +33,4 @@ data <- exploratory::select_columns(exploratory::clean_data_frame(exploratory::g
   select(-created_at)
 
 print (data)
-write.csv(data, "twitter.csv", fileEncoding="UTF-8")
+write.csv(data, "twitter_new.csv", fileEncoding="UTF-8")

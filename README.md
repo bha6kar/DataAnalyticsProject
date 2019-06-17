@@ -13,4 +13,4 @@ In order to accomplish the prediction, the historical data of the stocks is need
 
 # Data visualisation
 
-![Figure](https://github.com/bha6kar/DataAnalyticsProject/figures/AAPL/Stock.png)
+![Figure](https://github.com/bha6kar/DataAnalyticsProject/blob/master/figures/aapl/Stock.png)

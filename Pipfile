@@ -26,7 +26,7 @@ mock = "==2.0.0"
 more-itertools = "==7.0.0"
 mpl-finance = "==0.10.0"
 multitasking = "==0.0.7"
-nltk = "==3.4"
+nltk = ">=3.4"
 numpy = "==1.19.2"
 pandas = "==1.2.4"
 pandas-datareader = "==0.7.0"
@@ -64,7 +64,7 @@ Pillow = ">=7.1.0"
 PyWavelets = "==1.1.1"
 PyYAML = "==5.4"
 vaderSentiment = "==3.2.1"
-Werkzeug = "==0.15.1"
+Werkzeug = ">=0.15.1"
 
 [dev-packages]
 

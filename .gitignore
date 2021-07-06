@@ -1,6 +1,7 @@
 # dev
 .venv
 .vscode
+.metals
 node_modules/
 data/
 __pycache__/

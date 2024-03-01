@@ -1,12 +1,13 @@
 # %%
-from preprocessing import PreProcessing
-from data_retriever import DataRetrieverYahoo
+import matplotlib.pyplot as plt
+from model_20_encoded import nnmodel
+
 from autoencoder import AutoEncoder
 from data_processing import DataProcessing
+from data_retriever import DataRetrieverYahoo
 from model import NeuralNetwork
-from model_20_encoded import nnmodel
 from plot_stock_data import Plot_stock_data
-import matplotlib.pyplot as plt
+from preprocessing import PreProcessing
 
 # %%
 SPLIT = 0.8
@@ -40,7 +41,13 @@ preprocess.make_test_data()
 # %%
 autoencoder = AutoEncoder(ENCODED_DIM)
 # %%
-autoencoder.build_train_model(input_shape=INPUT_DIM, encoded1_shape=40, encoded2_shape=30, decoded1_shape=30, decoded2_shape=40)
+autoencoder.build_train_model(
+    input_shape=INPUT_DIM,
+    encoded1_shape=40,
+    encoded2_shape=30,
+    decoded1_shape=30,
+    decoded2_shape=40,
+)
 # %%
 
 process = DataProcessing(SPLIT, FEATURE_SPLIT)

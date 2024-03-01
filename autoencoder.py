@@ -1,23 +1,45 @@
-from keras.layers import Input, Dense
-from keras.models import Model
-from keras import regularizers
-import pandas as pd
 import numpy as np
+import pandas as pd
+from keras import regularizers
+from keras.layers import Dense, Input
+from keras.models import Model
 
 
 class AutoEncoder:
     def __init__(self, encoding_dim):
         self.encoding_dim = encoding_dim
 
-    def build_train_model(self, input_shape, encoded1_shape, encoded2_shape, decoded1_shape, decoded2_shape, epochs=1000):
+    def build_train_model(
+        self,
+        input_shape,
+        encoded1_shape,
+        encoded2_shape,
+        decoded1_shape,
+        decoded2_shape,
+        epochs=1000,
+    ):
         input_data = Input(shape=(1, input_shape))
 
-        encoded1 = Dense(encoded1_shape, activation="relu", activity_regularizer=regularizers.l2(0))(input_data)
-        encoded2 = Dense(encoded2_shape, activation="relu", activity_regularizer=regularizers.l2(0))(encoded1)
-        encoded3 = Dense(self.encoding_dim, activation="relu", activity_regularizer=regularizers.l2(0))(encoded2)
-        decoded1 = Dense(decoded1_shape, activation="relu", activity_regularizer=regularizers.l2(0))(encoded3)
-        decoded2 = Dense(decoded2_shape, activation="relu", activity_regularizer=regularizers.l2(0))(decoded1)
-        decoded = Dense(input_shape, activation="sigmoid", activity_regularizer=regularizers.l2(0))(decoded2)
+        encoded1 = Dense(
+            encoded1_shape, activation="relu", activity_regularizer=regularizers.l2(0)
+        )(input_data)
+        encoded2 = Dense(
+            encoded2_shape, activation="relu", activity_regularizer=regularizers.l2(0)
+        )(encoded1)
+        encoded3 = Dense(
+            self.encoding_dim,
+            activation="relu",
+            activity_regularizer=regularizers.l2(0),
+        )(encoded2)
+        decoded1 = Dense(
+            decoded1_shape, activation="relu", activity_regularizer=regularizers.l2(0)
+        )(encoded3)
+        decoded2 = Dense(
+            decoded2_shape, activation="relu", activity_regularizer=regularizers.l2(0)
+        )(decoded1)
+        decoded = Dense(
+            input_shape, activation="sigmoid", activity_regularizer=regularizers.l2(0)
+        )(decoded2)
 
         autoencoder = Model(inputs=input_data, outputs=decoded)
 
@@ -37,7 +59,9 @@ class AutoEncoder:
         ntest = np.array(test)
         test_data = np.reshape(ntest, (len(ntest), 1, 55))
 
-        print('Encoder model mse: {}'.format(autoencoder.evaluate(test_data, test_data)))
+        print(
+            "Encoder model mse: {}".format(autoencoder.evaluate(test_data, test_data))
+        )
 
         log_train = pd.read_csv("preprocessing/log_train.csv", index_col=0)
         coded_train = []
